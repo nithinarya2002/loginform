@@ -12,42 +12,52 @@ const App=()=>{
     });
     const inp1=(event)=>{
         // setname(event.target.value);
-        const {value,name}=event.target
+        const {value,name}=event.target          //object destructuring is different from array destructuring.It is object destructuring.
         console.log(value);
         console.log(name);
         setuserinfo((previnfo)=>{
-            if (name==='name'){
-                return {
-                 name:value,
-                 email:previnfo.email,
-                 phone:previnfo.phone,
-                 add:previnfo.add
-                };
-            }
-            else if (name==='email'){
-                return {
-                 name:previnfo.name,
-                 email:value,
-                 phone:previnfo.phone,
-                 add:previnfo.add
-                };
-            }
-            else if (name==='phone'){
-                return {
-                 name:previnfo.name,
-                 email:previnfo.email,
-                 phone:value,
-                 add:previnfo.add
-                };
-            }
-            else if (name==='add'){
-                return {
-                 name:previnfo.name,
-                 email:previnfo.email,
-                 phone:previnfo.phone,
-                 add:value
-                };
-            }
+            return {
+                ...previnfo,
+                [name]:value
+            };
+
+
+            //The same below thing is just done with above two lines for any no of input fields with the help of {spread operator '...'}
+
+
+            
+            // if (name==='name'){
+            //     return {
+            //      name:value,
+            //      email:previnfo.email,
+            //      phone:previnfo.phone,
+            //      add:previnfo.add
+            //     };
+            // }
+            // else if (name==='email'){
+            //     return {
+            //      name:previnfo.name,
+            //      email:value,
+            //      phone:previnfo.phone,
+            //      add:previnfo.add
+            //     };
+            // }
+            // else if (name==='phone'){
+            //     return {
+            //      name:previnfo.name,
+            //      email:previnfo.email,
+            //      phone:value,
+            //      add:previnfo.add
+            //     };
+            // }
+            // else if (name==='add'){
+            //     return {
+            //      name:previnfo.name,
+            //      email:previnfo.email,
+            //      phone:previnfo.phone,
+            //      add:value
+            //     };
+            // }
         
         });
         };
